@@ -27,8 +27,8 @@ newButton.onclick = function() {
 			return response.json();
 		})
 		.then(function(data) {
-			console.log("UGH FINALLY", data);
+			console.log("UGH FINALLY YAYY", data);
 		})
 }
 
-document.getElementsByName("body").append(newButton);
+document.body.append(newButton);
