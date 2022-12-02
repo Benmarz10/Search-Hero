@@ -28,7 +28,10 @@ newButton.onclick = function() {
 		})
 		.then(function(data) {
 			console.log("UGH FINALLY", data);
+            var listItem = createElement('li');
+            listItem.textContent = data[i].name;
+            document.body.appendChild(listItem);
 		})
 }
 
-document.getElementsByName("body").append(newButton);
+document.body.append(newButton);
