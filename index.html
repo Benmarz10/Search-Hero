@@ -42,7 +42,36 @@
 </section>
 
 <body>
-    <main>
+    <style>
+        .box {
+            background-color: #fff;
+            border-radius: 6px;
+            box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%), 0 0 0 1px rgb(10 10 10 / 2%);
+            color: #4a4a4a;
+            display: block;
+            padding: 1.25rem;
+            width: 650px;
+
+        }
+
+        .image {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .tile {
+            float: right;
+            align-items: stretch;
+            /* display: block; */
+            /* flex-basis: 0; */
+            /* flex-grow: 1; */
+            /* flex-shrink: 1; */
+            min-height: -webkit-min-content;
+            min-height: -moz-min-content;
+            min-height: min-content;
+        }
+    </style>
+<main>
         <section class="container is-fluid">
             <div class="box column is-two-thirds">
                 <div class="block">
@@ -85,6 +114,26 @@
             </div>
         </section>
     </main>
+    <div class="tile is-parent">
+        <article class="tile is-child notification is-success">
+            <div class="content">
+                <div class="box">Searched Character</div>
+                <p class="title"></p>
+                <p class="subtitle"></p>
+                <p class="subtitle"></p>
+                <figure class="image">
+                    <img src="https://bulma.io/images/placeholders/256x256.png">
+                </figure>
+                <div class="buttons">
+                    <button class="button is-info">Info</button>
+                    <button class="button is-success">Success</button>
+                </div>
+                <div class="content">
+                    <!-- Content -->
+                </div>
+            </div>
+        </article>
+    </div>
 </body>
 <footer class="footer">
     <div class="content has-text-centered">
