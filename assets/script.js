@@ -28,7 +28,16 @@ newButton.onclick = function() {
 		})
 		.then(function(data) {
 			console.log("UGH FINALLY YAYY", data);
+			// var rankingTd = document.getElementId("ranking")
+			// var rank = rankingTd.innerHTML;
+			// localStorage.setItem("ranking", rank)
 		})
 }
+
+
+//  STEP 1 - Local storage function to save stuff - localStorage.setItem("key", value)
+// localStorage.setItem("ranking", rank)
+
+// STEP 2 - Local storage function to get stuff - localStorage.getItem("key")
 
 document.body.append(newButton);
