@@ -32,3 +32,17 @@ newButton.onclick = function() {
 }
 
 document.body.append(newButton);
+
+$(document).ready(function() {
+	$('.filter-menu').on('click', '#dropdown', event => {
+	  event.preventDefault();
+	  console.log('dropdown menu option clicked!');
+  
+	  var value = $(this).val(); // Here to get value
+	  if (value === 1){
+		const bookmarks = STORE.list.filter(bookmark => bookmark.rating >= 1);
+		return bookmarks;
+	  }
+	  renderStore();
+	});
+  });
