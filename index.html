@@ -1,13 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
+
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <title>Marvel 10/10</title>
+    <!--custom css styling-->
+    <style>
+        .container {
+            background-color: rgb(208, 208, 208);
+            text-align: center;
+            text-decoration: bolder;
+        }
+
+        .section {
+            background-color: rgb(220, 220, 220);
+        }
+
+        .title {
+            text-align: center;
+        }
+
+        .footer {
+            max-height: 30px;
+        }
+    </style>
 </head>
+
+<section class="hero is-danger is-primary">
+    <div class="hero-body">
+        <p class="title">
+            Rate your Favorite Marvel Hero's
+        </p>
+        <p class="subtitle">
+            Share with your friends
+        </p>
+    </div>
+</section>
+
 <body>
-    
+    <style>
+        .box {
+            background-color: #fff;
+            border-radius: 6px;
+            box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%), 0 0 0 1px rgb(10 10 10 / 2%);
+            color: #4a4a4a;
+            display: block;
+            padding: 1.25rem;
+            width: 650px;
+
+        }
+
+        .image {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .tile {
+            float: right;
+            align-items: stretch;
+            /* display: block; */
+            /* flex-basis: 0; */
+            /* flex-grow: 1; */
+            /* flex-shrink: 1; */
+            min-height: -webkit-min-content;
+            min-height: -moz-min-content;
+            min-height: min-content;
+        }
+    </style>
+<main>
+        <section class="container is-fluid">
+            <div class="box column is-two-thirds">
+                <div class="block">
+                    <div>
+                        <div class="">
+                            <h3 class="title is-1"> Search Hero!</h3>
+                            <h5 class="subtitle is-5">Explore the MCU</h5>
+                        </div>
+                        <div class="is-justify-content-center is-align-items-center">
+                            <input class="input" type="text" placeholder="Enter a Marvel character">
+                        </div>
+                    </div>
+                </div>
+                <div class = "block">
+                    <div>
+                        <p>List of favorite characters</p>
+                    </div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Ranking</th>
+                                <th>Chacter Name</th>
+                                <th>Your ranking</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>1</th>
+                                <td>Hulk</td>
+                                <td>5/5</td>
+                            </tr>
+                            <tr>
+                                <th>2</th>
+                                <td>Iron Man</td>
+                                <td>4.8/5</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div class="tile is-parent">
+        <article class="tile is-child notification is-success">
+            <div class="content">
+                <div class="box">Searched Character</div>
+                <p class="title"></p>
+                <p class="subtitle"></p>
+                <p class="subtitle"></p>
+                <figure class="image">
+                    <img src="https://bulma.io/images/placeholders/256x256.png">
+                </figure>
+                <div class="buttons">
+                    <button class="button is-info">Info</button>
+                    <button class="button is-success">Success</button>
+                </div>
+                <div class="content">
+                    <!-- Content -->
+                </div>
+            </div>
+        </article>
+    </div>
 </body>
+<footer class="footer">
+    <div class="content has-text-centered">
+        <p>
+            <strong>Marvel 10/10</strong> by Group 10/10.
+        </p>
+    </div>
+</footer>
 <script src="./assets/script.js"></script>
+
+
 </html>

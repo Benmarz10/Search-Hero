@@ -1,22 +1,4 @@
-// const encodedParams = new URLSearchParams();
-// encodedParams.append("privateKey", "e0be486578d748d3413bbde846a19265cc745c2a");
-// encodedParams.append("nameStartsWith", "Spider-Man");
-// encodedParams.append("publicKey", "daa60ec964f3d078d4b5113c45d2896d");
 
-// const options = {
-// 	method: 'POST',
-// 	headers: {
-// 		'content-type': 'application/x-www-form-urlencoded',
-// 		'X-RapidAPI-Key': '95ca73bdfamshb3559b4cafeb6c0p1be87ajsnd385a82867f4',
-// 		'X-RapidAPI-Host': 'Marvelstefan-skliarovV1.p.rapidapi.com'
-// 	},
-// 	body: encodedParams
-// };
-
-// fetch('https://marvelstefan-skliarovv1.p.rapidapi.com/getCharacters', options)
-// 	.then(response => response.json())
-// 	.then(response => console.log(response))
-// 	.catch(err => console.error(err));
 	
 
 var newButton = document.createElement("button");
@@ -28,10 +10,35 @@ newButton.onclick = function() {
 		})
 		.then(function(data) {
 			console.log("UGH FINALLY", data);
-            var listItem = createElement('li');
-            listItem.textContent = data[i].name;
-            document.body.appendChild(listItem);
 		})
 }
 
+// Get marvel character from user input
+function getMarvelCharacter(userInput){
+    fetch()
+}
+
+// Get API with more info on WIKI or something
+function getMoreInfo(input){
+
+}
+
+// Get and fetch marvel character from API and whatever attributes
+function displayMarvelCharacter(data){
+    // Get data and append it to container
+}
+
+function handleSearchBtn(event){
+    // Set local storage with click
+}
+
+function handleMoreInfoBtn(event){
+    // Fetch more infor when clicked
+}
+
+function handleClearBtn(event){
+    // Clear local storage and list if needed
+}
+
+search.addEventListener('click',handleSearchBtn);
 document.body.append(newButton);
