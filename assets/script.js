@@ -1,3 +1,11 @@
+var userCharacter = $('#marvel-input');
+var characterList = $('#character-list');
+var searchBlock = $('#search-block');
+var currentDisplay = $('#current-character');
+var saveCharacterBtn = $('#save-character');
+var moreInfoBtn = $('#more-info');
+var submitButton = $('#submit'); 
+
 
 	
 
