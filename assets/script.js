@@ -10,7 +10,7 @@ var savedCharactersList = {};
 
 submitButton.on('click', function () {
 	var userInput = userCharacter.val();
-	displayMarvelCharacter(userInput);
+	getMarvelCharacter(userInput);
 	console.log(userInput);
 
 });
@@ -32,7 +32,7 @@ submitButton.on('click', function () {
 // Get and fetch marvel character from API and whatever attributes
 // Get data and append it to container
 //new var characterInfo created in here
-function displayMarvelCharacter(userInput) {
+function getMarvelCharacter(userInput) {
   fetch ("https://gateway.marvel.com:443/v1/public/characters?name=" + userInput + "&apikey=daa60ec964f3d078d4b5113c45d2896d")
 	.then(response => response.json())
   .then(characterInfo => {
@@ -43,6 +43,10 @@ document.querySelector('#characterName').innerHTML = characterInfo.data.results[
  
               
 
+}
+
+function displayMarvelCharacter(characterInfo){
+    
 }
 
 function handleSearchBtn(event) {
