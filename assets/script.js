@@ -16,20 +16,31 @@ submitButton.on('click', function () {
 });
 
 
-// Get marvel character from user input
-function getMarvelCharacter(userInput) {
-	fetch("https://gateway.marvel.com/v1/public/characters?name="+userInput+"&apikey=daa60ec964f3d078d4b5113c45d2896d")
-	//?ts=1&apikey=1234&hash=ffd275c5130566a2916217b101f26150
+// // Get marvel character from user input
+// function getMarvelCharacter(userI// nput) {
+// 	fetch("https://gateway.marvel.com/v1/public/characters?name="+userInput+"&apikey=daa60ec964f3d078d4b5113c45d2896d")
+// 	//?ts=1&apikey=1234&hash=ffd275c5130566a2916217b101f26150
 		.then(function (response) {
-			return response.json();
-		})
-		.then(function (data) {
-			console.log("UGH FINALLY", data);
-		})
-	}
+// 			return response.json();
+// 		})
+// 		.then(function (data) {
+// 			console.log("UGH FINALLY", data);
+// 		})
+// 	}
 
-	// Get API with more info on WIKI or something
-	function getMoreInfo(input) {
+// Get marvel character from user input
+function getMarvelCharacter(userInput){
+    fetch("https://gateway.marvel.com:443/v1/public/characters?name="+userInput+"&apikey=daa60ec964f3d078d4b5113c45d2896d")
+    .then(function(response){
+        return response.json();
+    })
+    .then(function(data) {
+        console.log(data);
+    })
+}
+getMarvelCharacter('Iron Man');
+// Get API with more info on WIKI or something
+function getMoreInfo(input){
 
 	}
 
