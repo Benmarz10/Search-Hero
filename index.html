@@ -9,57 +9,96 @@
     <title>Marvel 10/10</title>
 </head>
 
-<section class="hero has-background-danger is-primary">
-    <div class="hero-body">
+<header class="hero has-background-danger is-primary">
+    <div class="hero-body is-justify-content-center ">
         <p class="title">
             Rate your Favorite Marvel Heros
         </p>
     </div>
-</section>
+</header>
 
-<body class="">
-    <div class="box column is-multiline is-two-thirds">
+<style>
+    .hero.is-primary {
+        background-color: #00d1b2;
+        color: #fff;
+        text-align: -webkit-center;
+    }
+
+    .column {
+        display: flex;
+        flex-basis: 0;
+        flex-grow: 1;
+        flex-shrink: 1;
+        padding: 0.75rem;
+        flex-wrap: wrap;
+        align-content: center;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    .block {
+        display: flex;
+        flex-basis: 0;
+        flex-grow: 1;
+        flex-shrink: 1;
+        padding: 0.75rem;
+        flex-wrap: wrap;
+        align-content: center;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+</style>
+
+<body>
+    <div class="column">
         <div class="block" id="search-block">
             <div>
-                <div class="">
+                <div>
                     <h3 class="title is-1"> Search Hero!</h3>
                     <h5 class="subtitle is-5">Explore the MCU</h5>
                 </div>
-                <div class="is-justify-content-center is-align-items-center">
+                <div>
                     <input class="input" id="marvel-input" type="text" placeholder="Enter a Marvel character">
-                    <button id="submit" class="button is-primary has-background-danger">Submit</button>
+                    <button class="modal-close is-large" aria-label="close"></button>
                 </div>
-            </div>
-        </div>
 
-        <div class="block" id="character-list">
-            <div>
-                <p>List of favorite characters</p>
+                <button class="js-modal-trigger has-background-danger is-align-content-center" id="search-modal"
+                    data-target="modal-js-example">
+                    Search
+                </button>
+
             </div>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Ranking</th>
-                        <th>Chacter Name</th>
-                        <th>Your ranking</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th>1</th>
-                        <td>Hulk</td>
-                        <td>5/5</td>
-                    </tr>
-                    <tr>
-                        <th>2</th>
-                        <td>Iron Man</td>
-                        <td>4.8/5</td>
-                    </tr>
-                </tbody>
-            </table>
         </div>
     </div>
-    <div class="column is-multiline">
+
+    <div class="block" id="character-list">
+        <div>
+            <p>List of favorite characters</p>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Ranking</th>
+                    <th>Chacter Name</th>
+                    <th>Your ranking</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th>1</th>
+                    <td>Hulk</td>
+                    <td>5/5</td>
+                </tr>
+                <tr>
+                    <th>2</th>
+                    <td>Iron Man</td>
+                    <td>4.8/5</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!--</div>
         <div class="tile is-parent is-4 is-pulled-right has-background-danger">
             <article class="tile is-child notification has-background-danger">
                 <div class="content" id="current-character">
@@ -71,21 +110,33 @@
                         <button class="button is-info" id="more-info">Info</button>
                         <button class="button is-success" id="save-character">Save</button>
                     </div>
-                    <div class="content">
-                        <!-- Content -->
-                    </div>
                 </div>
             </article>
+        </div>-->
+    </div>
+
+    <!--Modal Link to JS-->
+    <div id="modal-js-example" class="modal">
+        <div class="modal-background"></div>
+
+        <div class="modal-content">
+            <div class="box">
+                <p>Modal JS example</p>
+
+                <button class="modal-close is-large" aria-label="close"></button>
+            </div>
         </div>
     </div>
 </body>
-<footer class="footer">
+
+<div class="footer">
     <div class="content has-text-centered">
         <p>
             <strong>Marvel 10/10</strong> by Group 10/10.
         </p>
     </div>
-</footer>
+</div>
+
 <!--Using JQuery-->
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
