@@ -43,6 +43,9 @@ submitButton.on('click', function () {
       console.log(characterInfo)
 
       document.querySelector('#characterName').innerHTML = characterInfo.data.results[0].name;
+      document.querySelector('#description').innerHTML = characterInfo.data.results[0].description;
+      document.querySelector('#icon').innerHTML = characterInfo.data.results[0].thumbnail;
+
     });
 })
 
