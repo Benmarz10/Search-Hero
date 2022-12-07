@@ -120,8 +120,21 @@
         <div class="modal-background"></div>
 
         <div class="modal-content">
-            <div class="box">
-                <p>Modal JS example</p>
+            <div class="tile is-parent has-background-danger">
+                <article class="tile is-child notification has-background-danger">
+                    <div class="content" id="current-character">
+                        <div class="box">Searched Character</div>
+                        <figure class="image">
+                            <img src="https://bulma.io/images/placeholders/256x256.png">
+                        </figure>
+                        <div class="buttons">
+                            <button class="button is-info" id="more-info">Info</button>
+                            <button class="button is-success" id="save-character">Save</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
 
                 <button class="modal-close is-large" aria-label="close"></button>
             </div>
