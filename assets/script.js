@@ -16,21 +16,33 @@ submitButton.on('click', function () {
 });
 
 // Get marvel character from user input
-function getMarvelCharacter(userInput) {
-	fetch("https://gateway.marvel.com:443/v1/public/characters?name=" + userInput + "&apikey=daa60ec964f3d078d4b5113c45d2896d")
-		.then(function (response) {
-			return response.json();
-		})
-		.then(function (data) {
-			console.log(data);
-		})
-}
+// function getMarvelCharacter(userInput) {
+// 	fetch("https://gateway.marvel.com:443/v1/public/characters?name=" + userInput + "&apikey=daa60ec964f3d078d4b5113c45d2896d")
+// 		.then(function (response) {
+// 			return response.json();
+// 		})
+// 		.then(function (data) {
+// 			console.log(data);
+// 		})
+// }
+
 
 // Get API with more info on WIKI or something
 
 // Get and fetch marvel character from API and whatever attributes
-function displayMarvelCharacter(data) {
-	// Get data and append it to container
+// Get data and append it to container
+//new var characterInfo created in here
+function displayMarvelCharacter(userInput) {
+  fetch ("https://gateway.marvel.com:443/v1/public/characters?name=" + userInput + "&apikey=daa60ec964f3d078d4b5113c45d2896d")
+	.then(response => response.json())
+  .then(characterInfo => {
+console.log(characterInfo)
+
+document.querySelector('#characterName').innerHTML = characterInfo.data.results[0].name;
+  })
+ 
+              
+
 }
 
 function handleSearchBtn(event) {
@@ -94,3 +106,17 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 	});
 });
+
+$(document).ready(function() {
+	$('.filter-menu').on('click', '#dropdown', event => {
+	  event.preventDefault();
+	  console.log('dropdown menu option clicked!');
+  
+	  var value = $(this).val(); // Here to get value
+	  if (value === 1){
+		const bookmarks = STORE.list.filter(bookmark => bookmark.rating >= 1);
+		return bookmarks;
+	  }
+	  renderStore();
+	});
+  });
