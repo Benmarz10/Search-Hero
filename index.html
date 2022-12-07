@@ -123,10 +123,16 @@
             <div class="tile is-parent has-background-danger">
                 <article class="tile is-child notification has-background-danger">
                     <div class="content" id="current-character">
-                        <div class="box">Searched Character</div>
-                        <figure class="image">
-                            <img src="https://bulma.io/images/placeholders/256x256.png">
+                        <div class="box" id="characterName">Searched Character</div>
+                        <figure class="image">         
+                                <!--Here is where the image id is-->
+                                <figure id="icon">
+                            <img src="https://gateway.marvel.com:443/v1/public/characters?apikey=daa60ec964f3d078d4b5113c45d2896d" alt img="alternative image">
                         </figure>
+                        <p>Description:
+                            <span id="description"></span>
+                          </p>
+                          <!--We need the ids from characterName, description, and icon (maybe current=character too) to get our info displayed on the modal card-->
                         <div class="buttons">
                             <button class="button is-info" id="more-info">Info</button>
                             <button class="button is-success" id="save-character">Save</button>

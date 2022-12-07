@@ -26,11 +26,23 @@ function getMarvelCharacter(userInput) {
 		})
 }
 
+
 // Get API with more info on WIKI or something
 
 // Get and fetch marvel character from API and whatever attributes
-function displayMarvelCharacter(data) {
-	// Get data and append it to container
+// Get data and append it to container
+//new var characterInfo created in here
+function displayMarvelCharacter(userInput) {
+  fetch ("https://gateway.marvel.com:443/v1/public/characters?name=" + userInput + "&apikey=daa60ec964f3d078d4b5113c45d2896d")
+	.then(response => response.json())
+  .then(characterInfo => {
+console.log(characterInfo)
+
+document.querySelector('#characterName').innerHTML = characterInfo.data.results[0].name;
+  })
+ 
+              
+
 }
 
 function handleSearchBtn(event) {
