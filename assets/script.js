@@ -75,9 +75,11 @@ function getWikiAPI(characterSearch){
 }
 
 getWikiAPI('Iron Man');
+// Display urls and titles based on searched character data
 function displayWikiURLS(data){
     
     for(i in data.query.pages){
+        // Create a div for the url info
         var wikiUrl = $('<div>');
         console.log(data.query.pages[i].canonicalurl);
 
@@ -86,7 +88,7 @@ function displayWikiURLS(data){
 
         var urlLink = $('<a>')
         urlLink.text(data.query.pages[i].canonicalurl);
-        urlLink.attr('src', data.query.pages[i].canonicalurl);
+        urlLink.attr('href', data.query.pages[i].canonicalurl);
 
         wikiUrl.append(title,urlLink);
         wikiURLS.append(wikiUrl);
