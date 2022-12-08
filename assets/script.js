@@ -5,6 +5,8 @@ var currentDisplay = $('#current-character');
 var saveCharacterBtn = $('#save-character');
 var moreInfoBtn = $('#more-info');
 var submitButton = $('#search-modal');
+var searchedCharactersName = $("#searched-character");
+var charcterDiplayBox = $("#character-display")
 
 var savedCharactersList = {};
 
@@ -16,16 +18,23 @@ submitButton.on('click', function () {
  });
 
 // Get marvel character from user input
-// function getMarvelCharacter(userInput) {
-// 	fetch("https://gateway.marvel.com:443/v1/public/characters?name=" + userInput + "&apikey=daa60ec964f3d078d4b5113c45d2896d")
-// 		.then(function (response) {
-// 			return response.json();
-// 		})
-// 		.then(function (data) {
-// 			console.log(data);
-// 		})
-// }
-
+function getMarvelCharacter(userInput) {
+	fetch("https://gateway.marvel.com:443/v1/public/characters?name=" + userInput + "&ts=2020&apikey=daa60ec964f3d078d4b5113c45d2896d&hash=52fc47dbf8836a109cb6aba3f7d1d792")
+	//&ts=2020&apikey=<API_KEY>&hash=35194bc0e16921b8664b670b6ea93832
+		.then(function (response) {
+			if (response.status === 404) {
+				enterVaildCharacter();
+			} else {
+			return response.json();
+			}
+		})
+		.then(function (data) {
+			if (data.data.results.length === 0) {
+				enterVaildCharacter();
+			}
+			console.log(data);
+		})
+}
 
 // Get API with more info on WIKI or something
 
@@ -130,3 +139,10 @@ $(document).ready(function () {
     renderStore();
   });
 });
+
+function enterVaildCharacter() {
+	charcterDiplayBox.empty();
+	userCharacter.empty();
+	charcterDiplayBox.append($("<h1></h1>").text("Please enter a vailid Marval character"));
+
+}
