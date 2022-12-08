@@ -98,6 +98,23 @@
         </table>
     </div>
 
+    <!--</div>
+        <div class="tile is-parent is-4 is-pulled-right has-background-danger">
+            <article class="tile is-child notification has-background-danger">
+                <div class="content" id="current-character">
+                    <div class="box">Searched Character</div>
+                    <figure class="image">
+                        <img src="https://bulma.io/images/placeholders/256x256.png">
+                    </figure>
+                    <div class="buttons">
+                        <button class="button is-info" id="more-info">Info</button>
+                        <button class="button is-success" id="save-character">Save</button>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>-->
+
     <!--Modal Link to JS-->
     <div id="modal-js-example" class="modal">
         <div class="modal-background"></div>
@@ -105,23 +122,29 @@
         <div class="modal-content">
             <div class="tile is-parent has-background-danger">
                 <article class="tile is-child notification has-background-danger">
-                    <div id = "character-display" class="content" id="current-character">
-                        <div id = "searched-character" class="box"></div>
+                    <!--<div id = "character-display"-->
+                    <div class="content" id="current-character">
+                        <div id="characterName" class="box"></div>
                         <figure class="image">
-                            <img src="https://bulma.io/images/placeholders/256x256.png">
-                        </figure>
-                        <div class="buttons">
-                            <button class="button is-info" id="more-info">Info</button>
-                            <button class="button is-success" id="save-character">Save</button>
-                        </div>
+                            <figure id="icon">
+                                <img src="" alt="alternative image">
+                            </figure>
+                            <p>Description:
+                                <span id="description"></span>
+                            </p>
+                            <!--We need the ids from characterName, description, and icon (maybe current=character too) to get our info displayed on the modal card-->
+                            <div class="buttons">
+                                <button class="button is-info" id="more-info">Info</button>
+                                <button class="button is-success" id="save-character">Save</button>
+                            </div>
                     </div>
                 </article>
             </div>
         </div>
 
-                <button class="modal-close is-large" aria-label="close"></button>
-            </div>
-        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+    </div>
     </div>
 </body>
 
