@@ -6,7 +6,6 @@ var saveCharacterBtn = $('#save-character');
 var moreInfoBtn = $('#more-info');
 var submitButton = $('#search-modal');
 var searchedCharactersName = $("#searched-character");
-var charcterDiplayBox = $("#character-display")
 
 var savedCharactersList = {};
 
@@ -105,9 +104,10 @@ document.addEventListener('DOMContentLoaded', () => {
 	});
 });
 
+// Displays if user input is invalid
 function enterVaildCharacter() {
-	charcterDiplayBox.empty();
+	currentDisplay.empty();
 	userCharacter.empty();
-	charcterDiplayBox.append($("<h1></h1>").text("Please enter a vailid Marval character"));
+ 	currentDisplay.append($("<h1></h1>").text("Please enter a valid Marval character"));
 
 }
