@@ -17,7 +17,7 @@ submitButton.on('click', function () {
 
 // Get marvel character from user input
 function getMarvelCharacter(userInput) {
-	fetch("https://gateway.marvel.com:443/v1/public/characters?name=" + userInput + "&apikey=daa60ec964f3d078d4b5113c45d2896d")
+	fetch("https://gateway.marvel.com:443/v1/public/characters?name=" + userInput + "&ts=2020&apikey=daa60ec964f3d078d4b5113c45d2896d&hash=52fc47dbf8836a109cb6aba3f7d1d792")
 		.then(function (response) {
 			return response.json();
 		})
