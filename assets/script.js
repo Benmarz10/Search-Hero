@@ -12,7 +12,7 @@ var savedCharactersList = {};
 
 submitButton.on('click', function () {
   var userInput = userCharacter.val();
-  displayMarvelCharacter(userInput);
+  getMarvelCharacter(userInput);
   console.log(userInput);
 
  });
