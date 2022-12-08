@@ -36,6 +36,25 @@ function getMarvelCharacter(userInput) {
 		})
 }
 
+//new var characterInfo created in here
+submitButton.on('click', function () {
+    var userInput = userCharacter.val();
+  //   getMarvelCharacter(userInput);
+    console.log(userInput);
+  
+    fetch("https://gateway.marvel.com:443/v1/public/characters?name=" + userInput + "&apikey=daa60ec964f3d078d4b5113c45d2896d")
+      .then(response => response.json())
+      .then(characterInfo => {
+        console.log(characterInfo)
+  
+        document.querySelector('#characterName').innerHTML = characterInfo.data.results[0].name;
+        document.querySelector('#description').innerHTML = characterInfo.data.results[0].description;
+        document.querySelector('#icon').innerHTML = characterInfo.data.results[0].thumbnail;
+  
+      });
+  })
+
+  
 // Get API with more info on WIKI or something
 function getWikiAPI(characterSearch){
     fetch("https://en.wikipedia.org/w/api.php?action=query&origin=*&format=json"+
