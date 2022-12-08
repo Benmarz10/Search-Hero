@@ -7,6 +7,7 @@ var moreInfoBtn = $('#more-info');
 var submitButton = $('#search-modal');
 var searchedCharactersName = $("#searched-character");
 var charcterDiplayBox = $("#character-display")
+var wikiURLS = $('#wikiUrl-container');
 
 var savedCharactersList = {};
 
@@ -57,8 +58,9 @@ submitButton.on('click', function () {
 
 // Get API with more info on WIKI or something
 function getWikiAPI(characterSearch){
+    var limit = 5;
     fetch("https://en.wikipedia.org/w/api.php?action=query&origin=*&format=json"+
-    "&prop=info|extracts&inprop=url&generator=search&gsrnamespace=0&gsrlimit=5&gsrsearch="+characterSearch)
+    "&prop=info|extracts&inprop=url&generator=search&gsrnamespace=0&gsrlimit="+limit+"&gsrsearch="+characterSearch)
     .then(function(response){
         console.log(response);
         return response.json();
@@ -66,12 +68,31 @@ function getWikiAPI(characterSearch){
     .then(function(data){
         console.log(data);
         for (var i in data.query.pages) {
-            console.log(data.query.pages[i].title);
+            console.log(data.query.pages[i].canonicalurl);
         }
+        displayWikiURLS(data)
     });
 }
 
-getWikiAPI('Thor');
+getWikiAPI('Iron Man');
+function displayWikiURLS(data){
+    
+    for(i in data.query.pages){
+        var wikiUrl = $('<div>');
+        console.log(data.query.pages[i].canonicalurl);
+
+        var title = $('<h3>');
+        title.text(data.query.pages[i].title);
+
+        var urlLink = $('<a>')
+        urlLink.text(data.query.pages[i].canonicalurl);
+        urlLink.attr('src', data.query.pages[i].canonicalurl);
+
+        wikiUrl.append(title,urlLink);
+        wikiURLS.append(wikiUrl);
+    }
+ 
+}
 // Get and fetch marvel character from API and whatever attributes
 // Get data and append it to container
 //new var characterInfo created in here
