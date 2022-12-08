@@ -59,10 +59,10 @@
                 </div>
                 <div>
                     <input class="input" id="marvel-input" type="text" placeholder="Enter a Marvel character">
-                    <button class="modal-close is-large" aria-label="close"></button>
+                    <button class="modal-close is-small" aria-label="close"></button>
                 </div>
 
-                <button class="js-modal-trigger has-background-danger is-align-content-center" id="search-modal"
+                <button class="button js-modal-trigger has-background-danger" id="search-modal"
                     data-target="modal-js-example">
                     Search
                 </button>
@@ -122,29 +122,29 @@
         <div class="modal-content">
             <div class="tile is-parent has-background-danger">
                 <article class="tile is-child notification has-background-danger">
+                    <!--<div id = "character-display"-->
                     <div class="content" id="current-character">
-                        <div class="box" id="characterName">Searched Character</div>
-                        <figure class="image">         
-                                <!--Here is where the image id is-->
-                                <figure id="icon">
-                            <img src="https://gateway.marvel.com:443/v1/public/characters?apikey=daa60ec964f3d078d4b5113c45d2896d" alt img="alternative image">
-                        </figure>
-                        <p>Description:
-                            <span id="description"></span>
-                          </p>
-                          <!--We need the ids from characterName, description, and icon (maybe current=character too) to get our info displayed on the modal card-->
-                        <div class="buttons">
-                            <button class="button is-info" id="more-info">Info</button>
-                            <button class="button is-success" id="save-character">Save</button>
-                        </div>
+                        <div id="characterName" class="box"></div>
+                        <figure class="image">
+                            <figure id="icon">
+                                <img src="" alt="alternative image">
+                            </figure>
+                            <p>Description:
+                                <span id="description"></span>
+                            </p>
+                            <!--We need the ids from characterName, description, and icon (maybe current=character too) to get our info displayed on the modal card-->
+                            <div class="buttons">
+                                <button class="button is-info" id="more-info">Info</button>
+                                <button class="button is-success" id="save-character">Save</button>
+                            </div>
                     </div>
                 </article>
             </div>
         </div>
 
-                <button class="modal-close is-large" aria-label="close"></button>
-            </div>
-        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+    </div>
     </div>
 </body>
 
