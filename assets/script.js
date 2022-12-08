@@ -38,8 +38,8 @@ function getMarvelCharacter(userInput) {
 
 // Get API with more info on WIKI or something
 function getWikiAPI(characterSearch){
-    fetch(fetch("https://en.wikipedia.org/w/api.php?action=query&origin=*&format=json"+
-    "&prop=info|extracts&inprop=url&generator=search&gsrnamespace=0&gsrlimit=5&gsrsearch="+characterName))
+    fetch("https://en.wikipedia.org/w/api.php?action=query&origin=*&format=json"+
+    "&prop=info|extracts&inprop=url&generator=search&gsrnamespace=0&gsrlimit=5&gsrsearch="+characterSearch)
     .then(function(response){
         console.log(response);
         return response.json();
@@ -51,6 +51,8 @@ function getWikiAPI(characterSearch){
         }
     });
 }
+
+getWikiAPI('Thor');
 // Get and fetch marvel character from API and whatever attributes
 // Get data and append it to container
 //new var characterInfo created in here
