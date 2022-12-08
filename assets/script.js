@@ -44,7 +44,7 @@ submitButton.on('click', function () {
 
       document.querySelector('#characterName').innerHTML = characterInfo.data.results[0].name;
       document.querySelector('#description').innerHTML = characterInfo.data.results[0].description;
-      document.querySelector('#icon').innerHTML = characterInfo.data.results[0].thumbnail.path;
+      document.querySelector('#icon').innerHTML = characterInfo.data.results[0].thumbnail.path +".jpg";
 
     });
 })
