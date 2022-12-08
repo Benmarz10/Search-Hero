@@ -8,23 +8,23 @@ var submitButton = $('#search-modal');
 
 var savedCharactersList = {};
 
-// submitButton.on('click', function () {
-//   var userInput = userCharacter.val();
-//   displayMarvelCharacter(userInput);
-//   console.log(userInput);
+submitButton.on('click', function () {
+  var userInput = userCharacter.val();
+  displayMarvelCharacter(userInput);
+  console.log(userInput);
 
-// });
+ });
 
 // Get marvel character from user input
-function getMarvelCharacter(userInput) {
-	fetch("https://gateway.marvel.com:443/v1/public/characters?name=" + userInput + "&apikey=daa60ec964f3d078d4b5113c45d2896d")
-		.then(function (response) {
-			return response.json();
-		})
-		.then(function (data) {
-			console.log(data);
-		})
-}
+// function getMarvelCharacter(userInput) {
+// 	fetch("https://gateway.marvel.com:443/v1/public/characters?name=" + userInput + "&apikey=daa60ec964f3d078d4b5113c45d2896d")
+// 		.then(function (response) {
+// 			return response.json();
+// 		})
+// 		.then(function (data) {
+// 			console.log(data);
+// 		})
+// }
 
 
 // Get API with more info on WIKI or something
@@ -37,7 +37,8 @@ submitButton.on('click', function () {
   getMarvelCharacter(userInput);
   console.log(userInput);
 
-  fetch("https://gateway.marvel.com:443/v1/public/characters?name=" + userInput + "&apikey=daa60ec964f3d078d4b5113c45d2896d")
+  //&ts=2020&apikey=<daa60ec964f3d078d4b5113c45d2896d>&hash=35194bc0e16921b8664b670b6ea93832
+  fetch("https://gateway.marvel.com:443/v1/public/characters?name=" + userInput + "&ts=2020&apikey=daa60ec964f3d078d4b5113c45d2896d&hash=52fc47dbf8836a109cb6aba3f7d1d792")
     .then(response => response.json())
     .then(characterInfo => {
       console.log(characterInfo)
@@ -45,6 +46,7 @@ submitButton.on('click', function () {
       document.querySelector('#characterName').innerHTML = characterInfo.data.results[0].name;
       document.querySelector('#description').innerHTML = characterInfo.data.results[0].description;
       document.querySelector('#icon').innerHTML = characterInfo.data.results[0].thumbnail.path +".jpg";
+      $("#icon").attr("src", characterInfo.data.results[0].thumbnail.path +".jpg");
 
     });
 })
