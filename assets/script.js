@@ -54,8 +54,8 @@ submitButton.on('click', function () {
 
       document.querySelector('#characterName').innerHTML = characterInfo.data.results[0].name;
       document.querySelector('#description').innerHTML = characterInfo.data.results[0].description;
-      document.querySelector('#icon').innerHTML = characterInfo.data.results[0].thumbnail.path +".jpg";
-      $("#icon").attr("src", characterInfo.data.results[0].thumbnail.path +".jpg");
+      //document.querySelector('#icon').innerHTML = characterInfo.data.results[0].thumbnail.path +".jpg";
+      $("#icon").attr("src", characterInfo.data.results[0].thumbnail.path + "/portrait_xlarge.jpg");
 
     });
 })
