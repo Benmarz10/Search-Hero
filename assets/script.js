@@ -54,7 +54,7 @@ submitButton.on('click', function () {
       });
   })
 
-  
+
 // Get API with more info on WIKI or something
 function getWikiAPI(characterSearch){
     fetch("https://en.wikipedia.org/w/api.php?action=query&origin=*&format=json"+
@@ -163,3 +163,10 @@ $(document).ready(function() {
 	  renderStore();
 	});
   });
+
+  function enterVaildCharacter() {
+	charcterDiplayBox.empty();
+	userCharacter.empty();
+	charcterDiplayBox.append($("<h1></h1>").text("Please enter a vailid Marval character"));
+
+}
