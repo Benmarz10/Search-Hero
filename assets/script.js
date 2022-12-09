@@ -74,14 +74,14 @@ function getWikiAPI(characterSearch){
     });
 }
 
-getWikiAPI('Iron Man');
+getWikiAPI('Hulk');
 // Display urls and titles based on searched character data
 function displayWikiURLS(data){
     
     for(i in data.query.pages){
         // Create a div for the url info
         var wikiUrl = $('<div>');
-        console.log(data.query.pages[i].canonicalurl);
+        // console.log(data.query.pages[i].canonicalurl);
 
         var title = $('<h3>');
         title.text(data.query.pages[i].title);
@@ -91,6 +91,7 @@ function displayWikiURLS(data){
         urlLink.attr('href', data.query.pages[i].canonicalurl);
 
         wikiUrl.append(title,urlLink);
+        // Append the div for the url info to container
         wikiURLS.append(wikiUrl);
     }
  
