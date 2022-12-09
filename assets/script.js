@@ -83,6 +83,7 @@ function displayWikiURLS(data){
         var urlLink = $('<a>');
         urlLink.text(data.query.pages[i].canonicalurl);
         urlLink.attr('href', data.query.pages[i].canonicalurl);
+        urlLink.attr('target', "_blank");
 
         wikiUrl.append(title,urlLink);
         // Append the div for the url info to containe
