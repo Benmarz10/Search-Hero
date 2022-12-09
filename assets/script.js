@@ -8,6 +8,7 @@ var submitButton = $('#search-modal');
 var searchedCharactersName = $("#searched-character");
 var characterName = $("#characterName");
 var characterDescription = $("#description");
+var wikiURLS = $('#wikiUrl-container');
 
 var savedCharactersList = {};
 
@@ -41,21 +42,54 @@ function getMarvelCharacter(userInput) {
 }
 
 // Get API with more info on WIKI or something
-function getWikiAPI(characterSearch) {
-  fetch("https://en.wikipedia.org/w/api.php?action=query&origin=*&format=json" +
-    "&prop=info|extracts&inprop=url&generator=search&gsrnamespace=0&gsrlimit=5&gsrsearch=" + characterSearch)
-    .then(function (response) {
-      console.log(response);
-      return response.json();
+function getWikiAPI(characterSearch){
+    var limit = 5;
+    fetch("https://en.wikipedia.org/w/api.php?action=query&origin=*&format=json"+
+    "&prop=info|extracts&inprop=url&generator=search&gsrnamespace=0&gsrlimit="+limit+"&gsrsearch="+characterSearch)
+    .then(function(response){
+        console.log(response);
+        return response.json();
     })
-    .then(function (data) {
-      console.log(data);
-      for (var i in data.query.pages) {
-        console.log(data.query.pages[i].title);
-      }
+    .then(function(data){
+        console.log(data);
+        for (var i in data.query.pages) {
+            console.log(data.query.pages[i].canonicalurl);
+        }
+        displayWikiURLS(data);
     });
 }
 
+moreInfoBtn.on("click", getMoreInfo)
+
+function getMoreInfo() {
+  var search = userCharacter.val();
+  console.log(search);
+  getWikiAPI(search);
+}
+
+// Display urls and titles based on searched character data
+function displayWikiURLS(data){
+  $("#hide").attr("class", "is-hidden");
+  characterName.text("");
+  
+    for(i in data.query.pages){
+        // Create a div for the url info
+        var wikiUrl = $('<div>');
+        // console.log(data.query.pages[i].canonicalurl);
+
+        var title = $('<h3>');
+        title.text(data.query.pages[i].title);
+
+        var urlLink = $('<a>');
+        urlLink.text(data.query.pages[i].canonicalurl);
+        urlLink.attr('href', data.query.pages[i].canonicalurl);
+
+        wikiUrl.append(title,urlLink);
+        // Append the div for the url info to containe
+        //wikiURLS.append(wikiUrl);
+        characterName.append(wikiUrl);
+      }
+}
 // Get and fetch marvel character from API and whatever attributes
 // Get data and append it to container
 
