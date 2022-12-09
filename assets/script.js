@@ -6,63 +6,58 @@ var saveCharacterBtn = $('#save-character');
 var moreInfoBtn = $('#more-info');
 var submitButton = $('#search-modal');
 var searchedCharactersName = $("#searched-character");
-var charcterDiplayBox = $("#character-display")
+var characterName = $("#characterName");
+var characterDescription = $("#description");
 
 var savedCharactersList = {};
 
+// submit button for user input funs fetch on marval api
 submitButton.on('click', function () {
   var userInput = userCharacter.val();
   getMarvelCharacter(userInput);
   console.log(userInput);
-
- });
+});
 
 // Get marvel character from user input
 function getMarvelCharacter(userInput) {
-	fetch("https://gateway.marvel.com:443/v1/public/characters?name=" + userInput + "&ts=2020&apikey=daa60ec964f3d078d4b5113c45d2896d&hash=52fc47dbf8836a109cb6aba3f7d1d792")
-	//&ts=2020&apikey=<API_KEY>&hash=35194bc0e16921b8664b670b6ea93832
-		.then(function (response) {
-			if (response.status === 404) {
-				enterVaildCharacter();
-			} else {
-			return response.json();
-			}
-		})
-		.then(function (data) {
-			if (data.data.results.length === 0) {
-				enterVaildCharacter();
-			}
-			console.log(data);
-		})
+  fetch("https://gateway.marvel.com:443/v1/public/characters?name=" + userInput + "&ts=2020&apikey=daa60ec964f3d078d4b5113c45d2896d&hash=52fc47dbf8836a109cb6aba3f7d1d792")
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (characterInfo) {
+      //Checks to see if Marvel has this character if not prompts user
+      if (characterInfo.data.total === 0) {
+        enterVaildCharacter();
+      } else {
+        // Sets content in character display modal
+        $("#hide").removeClass("is-hidden");
+        characterName.text(characterInfo.data.results[0].name);
+        characterDescription.text(characterInfo.data.results[0].description);
+        $("#icon").attr("src", characterInfo.data.results[0].thumbnail.path + "/portrait_xlarge.jpg");
+
+      }
+      console.log(characterInfo);
+    })
 }
 
 // Get API with more info on WIKI or something
+function getWikiAPI(characterSearch) {
+  fetch("https://en.wikipedia.org/w/api.php?action=query&origin=*&format=json" +
+    "&prop=info|extracts&inprop=url&generator=search&gsrnamespace=0&gsrlimit=5&gsrsearch=" + characterSearch)
+    .then(function (response) {
+      console.log(response);
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+      for (var i in data.query.pages) {
+        console.log(data.query.pages[i].title);
+      }
+    });
+}
 
 // Get and fetch marvel character from API and whatever attributes
 // Get data and append it to container
-//new var characterInfo created in here
-submitButton.on('click', function () {
-  var userInput = userCharacter.val();
-  getMarvelCharacter(userInput);
-  console.log(userInput);
-
-  //&ts=2020&apikey=<daa60ec964f3d078d4b5113c45d2896d>&hash=35194bc0e16921b8664b670b6ea93832
-  fetch("https://gateway.marvel.com:443/v1/public/characters?name=" + userInput + "&ts=2020&apikey=daa60ec964f3d078d4b5113c45d2896d&hash=52fc47dbf8836a109cb6aba3f7d1d792")
-    .then(response => response.json())
-    .then(characterInfo => {
-      console.log(characterInfo)
-
-      document.querySelector('#characterName').innerHTML = characterInfo.data.results[0].name;
-      document.querySelector('#description').innerHTML = characterInfo.data.results[0].description;
-      document.querySelector('#icon').innerHTML = characterInfo.data.results[0].thumbnail.path +".jpg";
-      $("#icon").attr("src", characterInfo.data.results[0].thumbnail.path +".jpg");
-
-    });
-})
-
-
-
-
 
 function handleSearchBtn(event) {
   // Set local storage with click
@@ -75,10 +70,6 @@ function handleMoreInfoBtn(event) {
 function handleClearBtn(event) {
   // Clear local storage and list if needed
 }
-
-//	//search.addEventListener('click', handleSearchBtn);
-//	//document.body.append(newButton);
-
 
 //Testing Modal functions
 document.addEventListener('DOMContentLoaded', () => {
@@ -140,9 +131,8 @@ $(document).ready(function () {
   });
 });
 
+// If an invaild character is entered prompted to enter a vaild one.
 function enterVaildCharacter() {
-	charcterDiplayBox.empty();
-	userCharacter.empty();
-	charcterDiplayBox.append($("<h1></h1>").text("Please enter a vailid Marval character"));
-
+  $("#hide").attr("class", "is-hidden");
+  characterName.text("Please enter a vailid Marval character");
 }
