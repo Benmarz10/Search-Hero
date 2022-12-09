@@ -88,14 +88,14 @@ document.querySelector('#characterName').innerHTML = characterInfo.data.results[
 
 }
 
-function handleSaveBtn(event) {
-	// Set local storage with click
-    var target = event.target;
-    var savedCharacter = target.innerHTML;
+// function handleSaveBtn(event) {
+// 	Set local storage with click
+//     var target = event.target;
+//     var savedCharacter = target.innerHTML;
 
-    
 
-}
+
+// }
 
 function handleMoreInfoBtn(event) {
 	// Fetch more infor when clicked
