@@ -62,6 +62,7 @@ function getWikiAPI(characterSearch) {
 function handleSaveBtn() {
 
     var savedCharacter = userCharacter.val();
+    // Check to see if this character is already saved
     if(savedCharactersList.includes(savedCharacter)){
         return;
     }
