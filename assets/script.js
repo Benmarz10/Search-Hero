@@ -60,8 +60,12 @@ function getWikiAPI(characterSearch) {
 // Get data and append it to container
 
 function handleSaveBtn() {
-    
+
     var savedCharacter = userCharacter.val();
+    if(savedCharactersList.includes(savedCharacter)){
+        return;
+    }
+
     console.log(savedCharacter);
     savedCharactersList.push(savedCharacter);
 
