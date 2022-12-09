@@ -34,6 +34,7 @@
         align-content: center;
         flex-direction: column;
         justify-content: flex-start;
+        padding-bottom: 2.5rem;
     }
 
     .block {
@@ -44,12 +45,24 @@
         padding: 0.75rem;
         flex-wrap: wrap;
         align-content: center;
-        flex-direction: column;
         justify-content: flex-start;
+    }
+
+    .body {
+        position: relative;
+        min-height: 100vh;
+    }
+
+    .footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 2.5rem;
+
     }
 </style>
 
-<body>
+<body class="body">
     <div class="column">
         <div class="block" id="search-block">
             <div>
@@ -72,30 +85,7 @@
     </div>
 
     <div class="block" id="character-list">
-        <div>
-            <p>List of favorite characters</p>
-        </div>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Ranking</th>
-                    <th>Chacter Name</th>
-                    <th>Your ranking</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th>1</th>
-                    <td>Hulk</td>
-                    <td>5/5</td>
-                </tr>
-                <tr>
-                    <th>2</th>
-                    <td>Iron Man</td>
-                    <td>4.8/5</td>
-                </tr>
-            </tbody>
-        </table>
+
     </div>
 
     <!--</div>
@@ -122,41 +112,41 @@
         <div class="modal-content">
             <div class="tile is-parent has-background-danger">
                 <article class="tile is-child notification has-background-danger">
-                    <!--<div id = "character-display"-->
                     <div class="content" id="current-character">
+                        
                         <div id="characterName" class="box"></div>
-                        <div id = "hide">
-                        <figure class="image">
-                            <figure>
-                                <img id="icon" src="" alt="alternative image">
+                        <div id="hide">
+                            <figure class="image">
+                                <figure>
+                                    <img id="icon" src="" alt="alternative image">
+                                </figure>
+                                <p>
+                                    <span id="description"></span>
+                                </p>
+                                <!--We need the ids from characterName, description, and icon (maybe current=character too) to get our info displayed on the modal card-->
+                                <div class="buttons">
+                                    <button class="button is-info" id="more-info">Info</button>
+                                    <button class="button is-success" id="save-character">Save</button>
+                                </div>
                             </figure>
-                            <p>Description:
-                                <span id="description"></span>
-                            </p>
-                            <!--We need the ids from characterName, description, and icon (maybe current=character too) to get our info displayed on the modal card-->
-                            <div class="buttons">
-                                <button class="button is-info" id="more-info">Info</button>
-                                <button class="button is-success" id="save-character">Save</button>
-                            </div>
                         </div>
                     </div>
                 </article>
             </div>
         </div>
 
-        <button class="modal-close is-large" aria-label="close"></button>
+        <button class="modal-close is-small" aria-label="close"></button>
     </div>
-    </div>
+    <div class="footer">
+        <div class="content has-text-centered">
+            <p>
+                <strong>Marvel 10/10</strong> by Group 10/10.
+            </p>
+        </div>
     </div>
 </body>
 
-<div class="footer">
-    <div class="content has-text-centered">
-        <p>
-            <strong>Marvel 10/10</strong> by Group 10/10.
-        </p>
-    </div>
-</div>
+
 
 <!--Using JQuery-->
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
