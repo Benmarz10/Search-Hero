@@ -175,5 +175,5 @@ $(document).ready(function () {
 // If an invalid character is entered prompt to enter a valid one.
 function enterVaildCharacter() {
   $("#hide").attr("class", "is-hidden");
-  characterName.text("Please enter a vailid Marval character");
+  characterName.text("Please enter a valid Marvel character");
 }
