@@ -11,7 +11,7 @@ var characterDescription = $("#description");
 var wikiURLS = $('#wikiUrl-container');
 var backButton = $('#back');
 
-var savedCharactersList = {};
+var savedCharactersList = [];
 
 // submit button for user input funs fetch on marval api
 submitButton.on('click', loadInfo);
@@ -108,9 +108,22 @@ function saveCharacter() {
   console.log(saveCharacter);
 }
 
-function handleSearchBtn(event) {
-  // Set local storage with click
+function handleSaveBtn() {
+
+    var savedCharacter = userCharacter.val();
+    // Check to see if this character is already saved
+    if(savedCharactersList.includes(savedCharacter)){
+        return;
+    }
+
+    console.log(savedCharacter);
+    savedCharactersList.push(savedCharacter);
+
+    localStorage.setItem("savedList", JSON.stringify(savedCharactersList));
+
 }
+saveCharacterBtn.on('click',handleSaveBtn);
+console.log(localStorage.getItem("savedList"));
 
 function handleMoreInfoBtn(event) {
   // Fetch more infor when clicked
