@@ -12,7 +12,7 @@
 <header class="hero has-background-danger is-primary">
     <div class="hero-body is-justify-content-center ">
         <p class="title">
-            Rate your Favorite Marvel Heros
+            Learn about your Favorite Marvel Heroes
         </p>
     </div>
 </header>
@@ -46,6 +46,7 @@
         flex-wrap: wrap;
         align-content: center;
         justify-content: flex-start;
+        flex-direction: column;
     }
 
     .body {
@@ -84,26 +85,16 @@
         </div>
     </div>
 
-    <div class="block" id="character-list">
+    <div class="block">
+        <ul class="block" id="character-list">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
 
     </div>
-
-    <!--</div>
-        <div class="tile is-parent is-4 is-pulled-right has-background-danger">
-            <article class="tile is-child notification has-background-danger">
-                <div class="content" id="current-character">
-                    <div class="box">Searched Character</div>
-                    <figure class="image">
-                        <img src="https://bulma.io/images/placeholders/256x256.png">
-                    </figure>
-                    <div class="buttons">
-                        <button class="button is-info" id="more-info">Info</button>
-                        <button class="button is-success" id="save-character">Save</button>
-                    </div>
-                </div>
-            </article>
-        </div>
-    </div>-->
 
     <!--Modal Link to JS-->
     <div id="modal-js-example" class="modal">
@@ -130,6 +121,7 @@
                                 </div>
                             </figure>
                         </div>
+                        <button id = "back" class="is-hidden">Back</button>
                     </div>
                 </article>
             </div>

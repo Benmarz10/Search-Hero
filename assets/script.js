@@ -9,29 +9,34 @@ var searchedCharactersName = $("#searched-character");
 var characterName = $("#characterName");
 var characterDescription = $("#description");
 var wikiURLS = $('#wikiUrl-container');
+var backButton = $('#back');
 
 var savedCharactersList = [];
 
 // submit button for user input funs fetch on marval api
-submitButton.on('click', function () {
-  var userInput = userCharacter.val();
-  getMarvelCharacter(userInput);
-  console.log(userInput);
-});
+submitButton.on('click', loadInfo);
 
 // Get marvel character from user input
+function loadInfo(){
+  backButton.attr("class", "is-hidden");
+  var userInput = userCharacter.val();
+  getMarvelCharacter(userInput);
+}
+
+// Get and fetch marvel character from API and whatever attributes
 function getMarvelCharacter(userInput) {
   fetch("https://gateway.marvel.com:443/v1/public/characters?name=" + userInput + "&ts=2020&apikey=daa60ec964f3d078d4b5113c45d2896d&hash=52fc47dbf8836a109cb6aba3f7d1d792")
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (characterInfo) {
-      //Checks to see if Marvel has this character if not prompts user
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (characterInfo) {
+    //Checks to see if Marvel has this character if not prompts user
       if (characterInfo.data.total === 0) {
         enterVaildCharacter();
       } else {
         // Sets content in character display modal
         $("#hide").removeClass("is-hidden");
+        backButton.attr("class", "is-hidden");
         characterName.text(characterInfo.data.results[0].name);
         characterDescription.text(characterInfo.data.results[0].description);
         $("#icon").attr("src", characterInfo.data.results[0].thumbnail.path + "/portrait_xlarge.jpg");
@@ -59,8 +64,10 @@ function getWikiAPI(characterSearch){
     });
 }
 
+// Button for more information
 moreInfoBtn.on("click", getMoreInfo)
 
+// Takes user input to search Wiki API
 function getMoreInfo() {
   var search = userCharacter.val();
   console.log(search);
@@ -83,15 +90,23 @@ function displayWikiURLS(data){
         var urlLink = $('<a>');
         urlLink.text(data.query.pages[i].canonicalurl);
         urlLink.attr('href', data.query.pages[i].canonicalurl);
+        urlLink.attr('target', "_blank");
 
         wikiUrl.append(title,urlLink);
         // Append the div for the url info to containe
         //wikiURLS.append(wikiUrl);
         characterName.append(wikiUrl);
       }
+      backButton.removeClass("is-hidden").addClass("button is-info");;
 }
-// Get and fetch marvel character from API and whatever attributes
+
 // Get data and append it to container
+saveCharacterBtn.on('click', saveCharacter)
+function saveCharacter() {
+  var savelist = $("<li></li>").text(userCharacter.val())
+  $('ul').append(savelist)
+  console.log(saveCharacter);
+}
 
 function handleSaveBtn() {
 
@@ -146,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Add a click event on various child elements to close the parent modal
-  (document.querySelectorAll('.modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button') || []).forEach(($close) => {
+  (document.querySelectorAll('.modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button, .is-success') || []).forEach(($close) => {
     const $target = $close.closest('.modal');
 
     $close.addEventListener('click', () => {
@@ -178,8 +193,10 @@ $(document).ready(function () {
   });
 });
 
-// If an invaild character is entered prompted to enter a vaild one.
+// If an invalid character is entered prompt to enter a valid one.
 function enterVaildCharacter() {
   $("#hide").attr("class", "is-hidden");
-  characterName.text("Please enter a vailid Marval character");
+  characterName.text("Please enter a valid Marvel character");
 }
+
+backButton.on("click", loadInfo);
