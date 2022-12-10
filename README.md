@@ -16,9 +16,9 @@ First project yay!
 
 ## Installation
 
-Enter the URL from the website. Our website:https://benmarz10.github.io/TempProject1/
+Enter the URL from the website. Our website:https://benmarz10.github.io/Search-Hero/
 
-URL of the github repository:https://github.com/Benmarz10/TempProject1
+URL of the github repository:https://github.com/Benmarz10/Search-Hero
 ## Usage
 ![Screenshot of the page](./assets/images/ "Screenshot Page")
 
