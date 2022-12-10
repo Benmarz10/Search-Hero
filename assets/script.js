@@ -9,29 +9,34 @@ var searchedCharactersName = $("#searched-character");
 var characterName = $("#characterName");
 var characterDescription = $("#description");
 var wikiURLS = $('#wikiUrl-container');
+var backButton = $('#back');
 
 var savedCharactersList = {};
 
 // submit button for user input funs fetch on marval api
-submitButton.on('click', function () {
-  var userInput = userCharacter.val();
-  getMarvelCharacter(userInput);
-  console.log(userInput);
-});
+submitButton.on('click', loadInfo);
 
 // Get marvel character from user input
+function loadInfo(){
+  backButton.attr("class", "is-hidden");
+  var userInput = userCharacter.val();
+  getMarvelCharacter(userInput);
+}
+
+// Get and fetch marvel character from API and whatever attributes
 function getMarvelCharacter(userInput) {
   fetch("https://gateway.marvel.com:443/v1/public/characters?name=" + userInput + "&ts=2020&apikey=daa60ec964f3d078d4b5113c45d2896d&hash=52fc47dbf8836a109cb6aba3f7d1d792")
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (characterInfo) {
-      //Checks to see if Marvel has this character if not prompts user
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (characterInfo) {
+    //Checks to see if Marvel has this character if not prompts user
       if (characterInfo.data.total === 0) {
         enterVaildCharacter();
       } else {
         // Sets content in character display modal
         $("#hide").removeClass("is-hidden");
+        backButton.attr("class", "is-hidden");
         characterName.text(characterInfo.data.results[0].name);
         characterDescription.text(characterInfo.data.results[0].description);
         $("#icon").attr("src", characterInfo.data.results[0].thumbnail.path + "/portrait_xlarge.jpg");
@@ -59,8 +64,10 @@ function getWikiAPI(characterSearch){
     });
 }
 
+// Button for more information
 moreInfoBtn.on("click", getMoreInfo)
 
+// Takes user input to search Wiki API
 function getMoreInfo() {
   var search = userCharacter.val();
   console.log(search);
@@ -90,8 +97,9 @@ function displayWikiURLS(data){
         //wikiURLS.append(wikiUrl);
         characterName.append(wikiUrl);
       }
+      backButton.removeClass("is-hidden").addClass("button is-info");;
 }
-// Get and fetch marvel character from API and whatever attributes
+
 // Get data and append it to container
 saveCharacterBtn.on('click', saveCharacter)
 function saveCharacter() {
@@ -177,3 +185,5 @@ function enterVaildCharacter() {
   $("#hide").attr("class", "is-hidden");
   characterName.text("Please enter a valid Marvel character");
 }
+
+backButton.on("click", loadInfo);
