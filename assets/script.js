@@ -93,7 +93,7 @@ function displayWikiURLS(data){
 }
 // Get and fetch marvel character from API and whatever attributes
 // Get data and append it to container
-
+function saveCharacter()
 function handleSearchBtn(event) {
   // Set local storage with click
 }
@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Add a click event on various child elements to close the parent modal
-  (document.querySelectorAll('.modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button') || []).forEach(($close) => {
+  (document.querySelectorAll('.modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button, .is-success') || []).forEach(($close) => {
     const $target = $close.closest('.modal');
 
     $close.addEventListener('click', () => {
@@ -166,7 +166,7 @@ $(document).ready(function () {
   });
 });
 
-// If an invaild character is entered prompted to enter a vaild one.
+// If an invalid character is entered prompt to enter a valid one.
 function enterVaildCharacter() {
   $("#hide").attr("class", "is-hidden");
   characterName.text("Please enter a vailid Marval character");
