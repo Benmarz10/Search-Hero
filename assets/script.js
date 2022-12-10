@@ -93,7 +93,13 @@ function displayWikiURLS(data){
 }
 // Get and fetch marvel character from API and whatever attributes
 // Get data and append it to container
-function saveCharacter()
+saveCharacterBtn.on('click', saveCharacter)
+function saveCharacter() {
+  var savelist = $("<li></li>").text(userCharacter.val())
+  $('ul').append(savelist)
+  console.log(saveCharacter);
+}
+
 function handleSearchBtn(event) {
   // Set local storage with click
 }
@@ -169,5 +175,5 @@ $(document).ready(function () {
 // If an invalid character is entered prompt to enter a valid one.
 function enterVaildCharacter() {
   $("#hide").attr("class", "is-hidden");
-  characterName.text("Please enter a vailid Marval character");
+  characterName.text("Please enter a valid Marvel character");
 }
