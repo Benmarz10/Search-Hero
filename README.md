@@ -6,6 +6,7 @@ With this website we make it easier to traverse the mcu(marvel cinematic univers
 We learned how to use a new css framework called Bulma. We also learned how to use the marvel api(very tricky) and the wiki api.We had to get a hash/time stamp generated and used 2 api keys for the marvel. 
 
 Our project has a unique website that will give the user a simple platform to go through and learn about their heroes all in one easy location instead of traversing through a lot of websites on google. 
+Our project has a unique website that will give the user a simple platform to go through and learn about their heroes all in one easy location instead of traversing through a lot of websites on google. 
 
 
 ## Table of Contents
@@ -22,12 +23,13 @@ Enter the URL from the website. Our website:https://benmarz10.github.io/Search-H
 
 URL of the github repository:https://github.com/Benmarz10/Search-Hero
 ## Usage
-![Screenshot of the page](./assets/images/Website%20Page.png "Screenshot Page")
+![Screenshot of the page](./assets/images/Websitepage.png "Screenshot Page")
 ![Screenshot of the page](./assets/images/SearchHeroIronManexample.png "Application In Use")
-![Screenshot of the page](./assets/images/workingcopyofsavedwebsite.png"Template")
+![Screenshot of the page](./assets/images/workingcopyofsavedwebsite.png"Future Development")
+![Screenshot of the page](./assets/Our%20project%20layout.png"Template")
 
 
-
+Resources Used:
 Our Bootstrap Variant:
 https://bulma.io/documentation/
 
@@ -46,7 +48,7 @@ credit to mcu and under fair use act.https://copyright.byu.edu/fair-use-images
 - Benjamin Marz (author) https://github.com/Benmarz10
 - Yassin Abasher (collaborator) https://github.com/Abasheryassin
 - Joshua Harmann (collaborator) https://github.com/Joshwashku1
-Resource used: Tutorials from SoloLearn app and class activities. Mdn website was used for some unique code as well.
+- Krister Mrylonn (one time collaborator who helped us figure out how to use the api locally)
 
 ## License
 
