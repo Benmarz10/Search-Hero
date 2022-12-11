@@ -106,6 +106,7 @@ function handleSaveBtn() {
     var savedCharacter = characterName.text();
     // Check to see if this character is already saved
     if(savedCharactersList.includes(savedCharacter) || !characterName.text()){
+
         return;
     }
 
@@ -113,6 +114,8 @@ function handleSaveBtn() {
     savedCharactersList.push(savedCharacter);
 
     localStorage.setItem("savedList", JSON.stringify(savedCharactersList));
+
+
 
 
     // Empty out the container then render it again
