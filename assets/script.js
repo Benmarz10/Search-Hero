@@ -126,10 +126,10 @@ function handleSaveBtn() {
 saveCharacterBtn.on('click',handleSaveBtn);
 console.log(localStorage.getItem("savedList"));
 
-
-function handleClearBtn(event) {
+//Please note that lines 130 to 132 is for future development.
+//function handleClearBtn(event) {
   // Clear local storage and list if needed
-}
+//}
 
 // This function is being called below and will render saved characters when the page loads.
 function init() {
