@@ -6,6 +6,7 @@ With this website we make it easier to traverse the mcu(marvel cinematic univers
 We learned how to use a new css framework called Bulma. We also learned how to use the marvel api(very tricky) and the wiki api.We had to get a hash/time stamp generated and used 2 api keys for the marvel. 
 
 Our project has a unique website that will give the user a simple platform to go through and learn about their heroes all in one easy location instead of traversing through a lot of websites on google. 
+Our project has a unique website that will give the user a simple platform to go through and learn about their heroes all in one easy location instead of traversing through a lot of websites on google. 
 
 
 ## Table of Contents
