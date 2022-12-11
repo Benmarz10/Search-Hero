@@ -1,5 +1,5 @@
 var userCharacter = $('#marvel-input');
-var characterList = $('#character-list');
+var savedContainer = $('#saved-container');
 var searchBlock = $('#search-block');
 var currentDisplay = $('#current-character');
 var saveCharacterBtn = $('#save-character');
@@ -100,19 +100,13 @@ function displayWikiURLS(data){
       backButton.removeClass("is-hidden").addClass("button is-info");;
 }
 
-// Get data and append it to container
-saveCharacterBtn.on('click', saveCharacter)
-function saveCharacter() {
-  var savelist = $("<li></li>").text(userCharacter.val())
-  $('ul').append(savelist)
-  console.log(saveCharacter);
-}
 
 function handleSaveBtn() {
 
-    var savedCharacter = userCharacter.val();
+    var savedCharacter = characterName.text();
     // Check to see if this character is already saved
-    if(savedCharactersList.includes(savedCharacter)){
+    if(savedCharactersList.includes(savedCharacter) || !characterName.text()){
+
         return;
     }
 
@@ -121,17 +115,54 @@ function handleSaveBtn() {
 
     localStorage.setItem("savedList", JSON.stringify(savedCharactersList));
 
+
+
+
+    // Empty out the container then render it again
+    savedContainer.empty();
+    renderSavedCharacters();
 }
+
 saveCharacterBtn.on('click',handleSaveBtn);
 console.log(localStorage.getItem("savedList"));
 
-function handleMoreInfoBtn(event) {
-  // Fetch more infor when clicked
-}
 
 function handleClearBtn(event) {
   // Clear local storage and list if needed
 }
+
+// This function is being called below and will render saved characters when the page loads.
+function init() {
+    // Get stored City from localStorage
+    var storedCharacters = JSON.parse(localStorage.getItem("savedList"));
+    console.log(storedCharacters);
+  
+    // If there are savedCharacters in localStorage, update the savedCharacterList array
+    if (storedCharacters !== null) {
+      savedCharactersList = storedCharacters;
+    }
+  
+    // This is a helper function that will render City to the DOM
+    renderSavedCharacters();
+}
+init();
+
+// The following function renders items in a saved list as elements
+function renderSavedCharacters() {
+
+    savedContainer.innerHTML = "";
+  
+    // Render a new button for each saved character on init
+    for (var i = 0; i < savedCharactersList.length; i++) {
+      var character = savedCharactersList[i];
+  
+      var characterName = $('<p>');
+      characterName.text(character); 
+  
+      
+      savedContainer.append(characterName);
+    }
+  }
 
 //Testing Modal functions
 document.addEventListener('DOMContentLoaded', () => {
