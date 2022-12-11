@@ -1,5 +1,5 @@
 var userCharacter = $('#marvel-input');
-var savedContainer = $('#saved-list');
+var savedContainer = $('#saved-container');
 var searchBlock = $('#search-block');
 var currentDisplay = $('#current-character');
 var saveCharacterBtn = $('#save-character');
@@ -103,9 +103,9 @@ function displayWikiURLS(data){
 
 function handleSaveBtn() {
 
-    var savedCharacter = userCharacter.val();
+    var savedCharacter = characterName.text();
     // Check to see if this character is already saved
-    if(savedCharactersList.includes(savedCharacter)){
+    if(savedCharactersList.includes(savedCharacter) || !characterName.text()){
         return;
     }
 
@@ -114,10 +114,12 @@ function handleSaveBtn() {
 
     localStorage.setItem("savedList", JSON.stringify(savedCharactersList));
 
-    // var savelist = $("<li>").text(userCharacter.val())
-    // $('ul').append(savelist)
 
+    // Empty out the container then render it again
+    savedContainer.empty();
+    renderSavedCharacters();
 }
+
 saveCharacterBtn.on('click',handleSaveBtn);
 console.log(localStorage.getItem("savedList"));
 
@@ -147,7 +149,7 @@ function renderSavedCharacters() {
 
     savedContainer.innerHTML = "";
   
-    // Render a new button for each saved city
+    // Render a new button for each saved character on init
     for (var i = 0; i < savedCharactersList.length; i++) {
       var character = savedCharactersList[i];
   
