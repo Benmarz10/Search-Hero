@@ -22,7 +22,11 @@ Enter the URL from the website. Our website:https://benmarz10.github.io/Search-H
 
 URL of the github repository:https://github.com/Benmarz10/Search-Hero
 ## Usage
-![Screenshot of the page](./assets/images/ "Screenshot Page")
+![Screenshot of the page](./assets/images/Website%20Page.png "Screenshot Page")
+![Screenshot of the page](./assets/images/SearchHeroIronManexample.png "Application In Use")
+![Screenshot of the page](./assets/images/workingcopyofsavedwebsite.png"Template")
+
+
 
 Our Bootstrap Variant:
 https://bulma.io/documentation/
