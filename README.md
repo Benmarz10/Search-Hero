@@ -23,10 +23,10 @@ Enter the URL from the website. Our website:https://benmarz10.github.io/Search-H
 
 URL of the github repository:https://github.com/Benmarz10/Search-Hero
 ## Usage
-![Screenshot of the page](./assets/images/Websitepage.png "Screenshot Page")
-![Screenshot of the page](./assets/images/SearchHeroIronManexample.png "Application In Use")
-![Screenshot of the page](./assets/images/workingcopyofsavedwebsite.png"Future Development")
-![Screenshot of the page](./assets/Our%20project%20layout.png"Template")
+![Screenshot of the page](assets/Images/Website-Page.png)
+![Screenshot of the page](assets/Images/SearchHeroIronManexample.png)
+![Screenshot of the page](assets/Images/Websitepage.png)
+![Screenshot of the page](assets/Images/workingcopyofsavedwebsite.png)
 
 
 Resources Used:
